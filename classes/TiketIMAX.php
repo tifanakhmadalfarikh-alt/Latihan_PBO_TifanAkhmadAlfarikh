@@ -17,8 +17,14 @@ class TiketIMAX extends Tiket {
         return $totalSementara + 35000;
     }
 
-    public function tampilkanInfoFasilitas() {
-        return "Kacamata 3D ID: {$this->kacamata3dId} | Efek Gerak: {$this->efekGerakFitur}";
+   public function tampilkanInfoFasilitas() {
+        // Jika kacamata3dId ada isinya, tampilkan. Jika tidak (NULL), tulis "Tidak Tersedia"
+        $infoKacamata = $this->kacamata3dId ? $this->kacamata3dId : "Tidak Tersedia";
+        
+        // Lakukan hal yang sama untuk efek gerak
+        $infoEfek = $this->efekGerakFitur ? $this->efekGerakFitur : "Tidak Tersedia";
+
+        return "Kacamata 3D ID: {$infoKacamata} | Efek Gerak: {$infoEfek}";
     }
 }
 ?>
