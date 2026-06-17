@@ -2,7 +2,6 @@
 require_once 'Tiket.php';
 
 class TiketVelvet extends Tiket {
-    // Properti Spesifik
     private $bantalSelimutPack;
     private $layananButler;
 
@@ -13,11 +12,12 @@ class TiketVelvet extends Tiket {
     }
 
     public function hitungTotalHarga() {
-        return $this->hargaDasarTiket; 
+        // Surcharge kelas premium 50%
+        $totalSementara = $this->jumlah_kursi * $this->hargaDasarTiket;
+        return $totalSementara * 1.50;
     }
 
     public function tampilkanInfoFasilitas() {
-        // Mengubah nilai boolean (true/false) menjadi teks yang mudah dibaca
         $statusBantal = $this->bantalSelimutPack ? "Tersedia" : "Tidak Tersedia";
         $statusButler = $this->layananButler ? "Tersedia" : "Tidak Tersedia";
         

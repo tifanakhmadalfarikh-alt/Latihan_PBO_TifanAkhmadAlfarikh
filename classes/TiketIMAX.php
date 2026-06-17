@@ -2,7 +2,6 @@
 require_once 'Tiket.php';
 
 class TiketIMAX extends Tiket {
-    // Properti Spesifik
     private $kacamata3dId;
     private $efekGerakFitur;
 
@@ -13,7 +12,9 @@ class TiketIMAX extends Tiket {
     }
 
     public function hitungTotalHarga() {
-        return $this->hargaDasarTiket; 
+        // Biaya tambahan teknologi layar & audio Rp35.000
+        $totalSementara = $this->jumlah_kursi * $this->hargaDasarTiket;
+        return $totalSementara + 35000;
     }
 
     public function tampilkanInfoFasilitas() {
